@@ -1,4 +1,16 @@
+const EMPTY = 0;
+
 export function generateBoard(size) {
+    let board;
+
+    do {
+        board = tryGenerateBoard(size);
+    } while (!isValid(board, size));
+
+    return board;
+}
+
+function tryGenerateBoard(size) {
     let availableNumbers = [...Array(size ** 2).keys()];
     let board = [];
 
@@ -19,4 +31,42 @@ export function generateBoard(size) {
     }
 
     return board;
+}
+
+function isValid(board, size) {
+    console.log(board);
+    let sum = 0;
+
+    for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+            if (board[i][j] != EMPTY) {
+                sum += countSmallerFollowingNumbers(board, size, i * size + j + 1, board[i][j]);   
+            } else if (size % 2 == 0) {
+                sum += i + 1;  
+            }
+        }
+    }
+
+    return sum % 2 == 0;
+}
+
+function countSmallerFollowingNumbers(board, size, startingIndex, currentNum) {
+    let count = 0;
+
+    for (startingIndex; startingIndex < size ** 2; startingIndex++) {
+        let [line, column] = convertIndex(startingIndex, size);
+
+        if (board[line][column] != EMPTY && board[line][column] < currentNum) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+function convertIndex(index, size) {
+    let i = Math.floor(index / size);
+    let j = index % size;
+
+    return [i, j];
 }
