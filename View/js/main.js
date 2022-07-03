@@ -1,4 +1,4 @@
-import { generateBoard } from "../../Controller/generate-board.js";
+import { generateBoard } from "../../controller/number-board/generate-board.js";
 import { displayBoard } from "./display-board.js";
 
 let size = 3;
