@@ -2,7 +2,7 @@ const squareTypes = {
     "number": getNumberSquare
 }
 
-function displayBoard(board) {
+export function displayBoard(board) {
     board.forEach(line => {
         let lineElement = document.createElement("div");
         lineElement.classList.add("line");
@@ -30,5 +30,3 @@ function getNumberSquare(square) {
 
     return content;
 }
-
-displayBoard([[6, 0, 7], [3,2,8], [4,5,1]]);
