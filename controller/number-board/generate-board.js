@@ -1,4 +1,4 @@
-const EMPTY = 0;
+import { EMPTY_NUMBER } from '../../common/common.js';
 
 export function generateBoard(size) {
     let board;
@@ -39,7 +39,7 @@ function isValid(board, size) {
 
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
-            if (board[i][j] != EMPTY) {
+            if (board[i][j] != EMPTY_NUMBER) {
                 sum += countSmallerFollowingNumbers(board, size, i * size + j + 1, board[i][j]);   
             } else if (size % 2 == 0) {
                 sum += i + 1;  
@@ -56,7 +56,7 @@ function countSmallerFollowingNumbers(board, size, startingIndex, currentNum) {
     for (startingIndex; startingIndex < size ** 2; startingIndex++) {
         let [line, column] = convertIndex(startingIndex, size);
 
-        if (board[line][column] != EMPTY && board[line][column] < currentNum) {
+        if (board[line][column] != EMPTY_NUMBER && board[line][column] < currentNum) {
             count++;
         }
     }
