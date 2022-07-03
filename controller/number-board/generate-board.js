@@ -34,7 +34,6 @@ function tryGenerateBoard(size) {
 }
 
 function isValid(board, size) {
-    console.log(board);
     let sum = 0;
 
     for (let i = 0; i < size; i++) {
