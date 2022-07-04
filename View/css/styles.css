@@ -17,12 +17,13 @@ body {
 
 h1 {
     color: #e9b2bc;
-    margin-bottom: 0.5em;
 }
 
 #board {
     display: flex;
     flex-direction: column;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .line {
@@ -42,6 +43,7 @@ h1 {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    box-shadow: 5px 5px #e1f2fb;
 }
 
 .square .number-content {
