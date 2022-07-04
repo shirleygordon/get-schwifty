@@ -22,10 +22,15 @@ class BoardController {
             return;
         }
 
+        if (this.model.startTime == undefined) {
+            this.model.startTime = new Date();
+        }
+
         let num = parseInt(target.innerText);
         this.trySwitchPlaces(num);
 
         if (this.model.isDone(this.model.board)) {
+            this.model.timeElapsed = new Date() - this.model.startTime;
             this.model.solvedMessage = "GG (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧";
         }
 

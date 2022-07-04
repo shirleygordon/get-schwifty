@@ -6,11 +6,15 @@ class BoardModel extends Observable {
         super();
         this.board = this.generateBoard(size);
         this.solvedMessage = "";
+        this.startTime;
+        this.timeElapsed;
     }
 
     createNewGame(size) {
         this.board = this.generateBoard(size);
         this.solvedMessage = "";
+        this.startTime = undefined;
+        this.timeElapsed = undefined;
         this.notify(this);
     }
 
@@ -98,7 +102,7 @@ class BoardModel extends Observable {
                 last++;
             }
         }
-    
+        
         return true;
     }
 }
