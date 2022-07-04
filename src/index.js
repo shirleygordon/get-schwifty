@@ -7,23 +7,25 @@ function main() {
     var controller = new BoardController(model);
     var view = new BoardView(controller);
 
-    document.getElementById("board-size").onchange = function() { tryCreateNewGame(model) };
-    document.getElementById("create-new-game").onclick = function() { getUserConfirmation(model) };
-    document.getElementById("cancel").onclick = function() { cancelNewGameCreation(model) };
+    document.getElementById("board-size").onchange = function() { tryCreateNewGame(controller) };
+    document.getElementById("create-new-game").onclick = function() { getUserConfirmation(controller) };
+    document.getElementById("cancel").onclick = function() { cancelNewGameCreation(model) };    
+    document.getElementById("submit-name").onclick = function() { tryAddGameToLeaderboard(controller) };
+    document.getElementById("close").onclick = function() { closeCompletedGamePopup(controller) };
 }
 
-function tryCreateNewGame(model) {
-    if (model.startTime != undefined) {
+function tryCreateNewGame(controller) {
+    if (controller.model.startTime != undefined) {
         document.getElementById("confirmation-popup").style.display = "flex";
         return;
     }
 
-    createNewGame(model);
+    createNewGame(controller);
 }
 
-function getUserConfirmation(model) {
+function getUserConfirmation(controller) {
     closeConfirmationPopup();
-    createNewGame(model);
+    createNewGame(controller);
 }
 
 function cancelNewGameCreation(model) {
@@ -35,9 +37,24 @@ function closeConfirmationPopup() {
     document.getElementById("confirmation-popup").style.display = "none";
 }
 
-function createNewGame(model) {
+function closeCompletedGamePopup(controller) {
+    document.getElementById("game-completed-popup").style.display = "none";
+    createNewGame(controller);
+}
+
+function createNewGame(controller) {
     let size = document.getElementById("board-size").value;
-    model.createNewGame(size);
+    controller.createNewGame(size);
+}
+
+function tryAddGameToLeaderboard(controller) {
+    let name = document.getElementById("name").value;
+
+    if (name == "") {
+        name = "unknown";
+    }
+
+    controller.tryAddGameToLeaderboard(name);
 }
 
 main();

@@ -8,6 +8,14 @@ class BoardModel extends Observable {
         this.solvedMessage = "";
         this.startTime;
         this.timeElapsed;
+        this.leaderboard = [
+            {
+                "name": "neji6",
+                "time": 6666,
+                "size": 3,
+                "date": "6/6/2006"
+            }
+        ];
     }
 
     createNewGame(size) {
@@ -16,6 +24,35 @@ class BoardModel extends Observable {
         this.startTime = undefined;
         this.timeElapsed = undefined;
         this.notify(this);
+    }
+
+    tryAddGameToLeaderboard(name) {
+        let game = {"name": name, "time": this.timeElapsed, "size": this.board[0].length, "date": `${this.startTime.getDate()}/${this.startTime.getMonth()}/${this.startTime.getFullYear()}`};
+        if (this.leaderboard.length < 5) {
+            this.leaderboard.push(game);
+        } else if (shouldAddToLeaderBoard()) {
+            let max = findMaxTime();
+            let maxIndex = this.leaderboard.findIndex((element) => element === max);
+            this.leaderboard.splice(maxIndex, 1);
+            this.leaderboard.push({"date": this.startTime, "name": name, "size": this.board[0].length, "time": this.timeElapsed});
+        }
+    }
+
+    shouldAddToLeaderboard() {
+        let max = findMaxTime();
+        return this.timeElapsed < max;
+    }
+
+    findMaxTime() {
+        let max = this.leaderboard[0];
+
+        for (let i = 1; i < this.leaderboard.length; i++) {
+            if (this.leaderboard[i].time > max.time) {
+                max = this.leaderboard[i];
+            }
+        }
+
+        return max;
     }
 
     generateBoard(size) {

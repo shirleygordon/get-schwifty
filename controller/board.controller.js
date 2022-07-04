@@ -37,6 +37,14 @@ class BoardController {
         this.model.notify(this.model);
     }
 
+    createNewGame(size) {
+        this.model.createNewGame(size);
+    }
+
+    tryAddGameToLeaderboard(name) {
+        this.model.tryAddGameToLeaderboard(name);
+    }
+
     trySwitchPlaces(num) {
         if (num == EMPTY_NUMBER) {
             throw new InvalidChoiceException("Can't switch places with empty square.");

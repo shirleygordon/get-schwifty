@@ -21,6 +21,25 @@ class BoardView extends Observer {
     update(model) {
         this.displayBoard(model.board);
         this.solvedMessage.innerText = model.solvedMessage;
+
+        if (this.solvedMessage.innerText != "") {
+            let leaderboard = document.getElementById("leaderboard");
+
+            model.leaderboard.forEach(element => {
+                let record = document.createElement("tr");
+                record.classList.add("record");
+                
+                for (let property in element) {
+                    let propertyElement = document.createElement("th");
+                    propertyElement.innerText = element[property];
+                    record.appendChild(propertyElement);
+                }
+
+                leaderboard.appendChild(record);
+            });
+
+            document.getElementById("game-completed-popup").style.display = "flex";
+        }
     }
 
     displayBoard(board) {
