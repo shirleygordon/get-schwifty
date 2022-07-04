@@ -34,7 +34,7 @@ class BoardModel extends Observable {
             let max = findMaxTime();
             let maxIndex = this.leaderboard.findIndex((element) => element === max);
             this.leaderboard.splice(maxIndex, 1);
-            this.leaderboard.push({"date": this.startTime, "name": name, "size": this.board[0].length, "time": this.timeElapsed});
+            this.leaderboard.push(game);
         }
     }
 
