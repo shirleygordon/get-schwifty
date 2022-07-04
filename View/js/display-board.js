@@ -1,6 +1,6 @@
 import '../../common/common.js';
 import { EMPTY_NUMBER } from '../../common/common.js';
-import { trySwitchPlaces } from '../../controller/number-board/game.js';
+import { isDone, trySwitchPlaces } from '../../controller/number-board/game.js';
 
 const squareTypes = {
     "number": getNumberSquare
@@ -42,8 +42,16 @@ function getNumberSquare(square) {
 
 function onSquareClick(board, square) {
     try {
-        let newBoard = trySwitchPlaces(board, square);
-        displayBoard(newBoard);
+        if (document.getElementById("winner-message").innerText == "") {
+            let newBoard = trySwitchPlaces(board, square);
+            displayBoard(newBoard);
+
+            if (isDone(newBoard)) {
+                let message = document.getElementById("winner-message");
+                message.textContent = "GG (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧";
+                
+            }
+        }        
     } catch(error) {
         alert(error);
     }
