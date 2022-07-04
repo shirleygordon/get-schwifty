@@ -12,14 +12,26 @@
     
     <link rel="stylesheet" href="./src/board.css">
     <link rel="stylesheet" href="./src/form.css">
+    <link rel="stylesheet" href="./src/popup.css">
     <link rel="stylesheet" href="./src/styles.css">
 
     <body>
         <h1>Get Schwifty</h1>
         <div class="new-game-form">
-            <input type="range" min="2" max="5" value="3" class="" id="board-size">
+            <input id="board-size" type="range" min="2" max="5" value="3">
         </div>
         <div id="board"></div>
         <h1 id="solved-message"></h1>
+
+        <div id="confirmation-popup">
+            <div class="container">
+                <p>Are you sure you want to create a new game?</p>
+                <p>The current game is still in progress.</p>
+                <div class="buttons">
+                    <button id="create-new-game">Confirm</button>
+                    <button id="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

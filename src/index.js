@@ -7,7 +7,32 @@ function main() {
     var controller = new BoardController(model);
     var view = new BoardView(controller);
 
-    document.getElementById("board-size").onchange = function() { createNewGame(model) };
+    document.getElementById("board-size").onchange = function() { tryCreateNewGame(model) };
+    document.getElementById("create-new-game").onclick = function() { getUserConfirmation(model) };
+    document.getElementById("cancel").onclick = function() { cancelNewGameCreation(model) };
+}
+
+function tryCreateNewGame(model) {
+    if (model.startTime != undefined) {
+        document.getElementById("confirmation-popup").style.display = "flex";
+        return;
+    }
+
+    createNewGame(model);
+}
+
+function getUserConfirmation(model) {
+    closeConfirmationPopup();
+    createNewGame(model);
+}
+
+function cancelNewGameCreation(model) {
+    closeConfirmationPopup();
+    document.getElementById("board-size").value = model.board[0].length;
+}
+
+function closeConfirmationPopup() {
+    document.getElementById("confirmation-popup").style.display = "none";
 }
 
 function createNewGame(model) {

@@ -1,0 +1,39 @@
+#confirmation-popup {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(241 249 249 / 70%);
+    position: fixed;
+    z-index: 1;
+}
+
+#confirmation-popup .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22em;
+    height: 8em;
+    color: #000;
+    background-color: #e1f2fb;
+    border-radius: 1em;
+    word-wrap: break-word;
+    box-shadow: 5px 5px #f1f9f9;
+}
+
+#confirmation-popup .buttons {
+    margin-top: 0.5em;
+}
+
+#confirmation-popup .buttons button {
+    outline: none;
+    border: none;
+    width: 5em;
+    height: 2em;
+    border-radius: 0.5em;
+    background-color: #f1f9f9;
+    cursor: pointer;
+}
