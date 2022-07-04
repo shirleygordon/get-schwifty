@@ -8,6 +8,12 @@ class BoardModel extends Observable {
         this.solvedMessage = "";
     }
 
+    createNewGame(size) {
+        this.board = this.generateBoard(size);
+        this.solvedMessage = "";
+        this.notify(this);
+    }
+
     generateBoard(size) {
         let board;
         
