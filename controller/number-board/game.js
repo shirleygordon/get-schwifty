@@ -17,6 +17,22 @@ export function trySwitchPlaces(board, num) {
     throw new InvalidChoiceException("Square must be adjacent to empty square.");
 }
 
+export function isDone(board) {
+    let last = 0;
+
+    for (let i = 0; i < board[0].length; i++) {
+        for (let j = 0; j < board[0].length; j++) {
+            if (board[i][j] != 0 && last + 1 != board[i][j]) {
+                return false;
+            }
+
+            last++;
+        }
+    }
+
+    return true;
+}
+
 function getIndex(board, num) {
     for (let i = 0; i < board[0].length; i++) {
         let index = board[i].indexOf(num);
