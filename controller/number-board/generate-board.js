@@ -1,11 +1,12 @@
 import { EMPTY_NUMBER } from '../../common/common.js';
+import { isDone } from './game.js';
 
 export function generateBoard(size) {
     let board;
 
     do {
         board = tryGenerateBoard(size);
-    } while (!isValid(board, size));
+    } while (!isValid(board, size) || isDone(board));
 
     return board;
 }
