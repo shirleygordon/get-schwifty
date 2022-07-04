@@ -31,7 +31,7 @@ h1 {
     flex-direction: row;
 }
 
-.square {
+.number-square {
     border-radius: 1em;
     background-color: #f3dfe3;
     max-width: 10em;
@@ -46,7 +46,7 @@ h1 {
     box-shadow: 5px 5px #e1f2fb;
 }
 
-.square .number-content {
+.number-square .number-content {
     font-size: 3em;
     font-weight: bold;
     color: #e9b2bc;
