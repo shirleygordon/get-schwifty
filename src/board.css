@@ -1,0 +1,30 @@
+#board {
+    display: grid;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 30em;
+    height: 30em;
+}
+
+.line {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+}
+
+.number-square {
+    border-radius: 1em;
+    background-color: #f3dfe3;
+    margin: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 5px 5px #e1f2fb;
+}
+
+.number-square .number-content {
+    font-size: 3em;
+    font-weight: bold;
+    color: #e9b2bc;
+}

@@ -18,36 +18,3 @@ body {
 h1 {
     color: #e9b2bc;
 }
-
-#board {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-.line {
-    display: flex;
-    flex-direction: row;
-}
-
-.number-square {
-    border-radius: 1em;
-    background-color: #f3dfe3;
-    max-width: 10em;
-    max-height: 10em;
-    width: 10em;
-    height: 10em;
-    margin: 0.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 5px 5px #e1f2fb;
-}
-
-.number-square .number-content {
-    font-size: 3em;
-    font-weight: bold;
-    color: #e9b2bc;
-}
