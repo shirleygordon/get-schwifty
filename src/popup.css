@@ -1,4 +1,4 @@
-#confirmation-popup {
+.popup {
     display: none;
     justify-content: center;
     align-items: center;
@@ -10,13 +10,12 @@
     z-index: 1;
 }
 
-#confirmation-popup .container {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 22em;
-    height: 8em;
+    padding: 2em;
     color: #000;
     background-color: #e1f2fb;
     border-radius: 1em;
@@ -24,11 +23,15 @@
     box-shadow: 5px 5px #f1f9f9;
 }
 
-#confirmation-popup .buttons {
+.container h1 {
+    margin-bottom: 0.5em;
+}
+
+.buttons {
     margin-top: 0.5em;
 }
 
-#confirmation-popup .buttons button {
+button {
     outline: none;
     border: none;
     width: 5em;
@@ -36,4 +39,15 @@
     border-radius: 0.5em;
     background-color: #f1f9f9;
     cursor: pointer;
+}
+
+.container input {
+    border-radius: 0.5em;
+    margin-right: 0.5em;
+    height: 2em;
+    width: 10em;
+    border: none;
+    outline: none;
+    padding: 10px;
+    box-shadow: 3px 3px #e1f2fb;
 }

@@ -12,6 +12,7 @@
     
     <link rel="stylesheet" href="./src/board.css">
     <link rel="stylesheet" href="./src/form.css">
+    <link rel="stylesheet" href="./src/leaderboard.css">
     <link rel="stylesheet" href="./src/popup.css">
     <link rel="stylesheet" href="./src/styles.css">
 
@@ -21,9 +22,8 @@
             <input id="board-size" type="range" min="2" max="5" value="3">
         </div>
         <div id="board"></div>
-        <h1 id="solved-message"></h1>
 
-        <div id="confirmation-popup">
+        <div id="confirmation-popup" class="popup">
             <div class="container">
                 <p>Are you sure you want to create a new game?</p>
                 <p>The current game is still in progress.</p>
@@ -31,6 +31,25 @@
                     <button id="create-new-game">Confirm</button>
                     <button id="cancel">Cancel</button>
                 </div>
+            </div>
+        </div>
+
+        <div id="game-completed-popup" class="popup">
+            <div class="container">
+                <h1 id="solved-message"></h1>
+                <div>
+                    <input id="name" type="text" placeholder="Name">
+                    <button id="submit-name">Submit</button>
+                </div>
+                <table id="leaderboard">
+                    <tr>
+                        <th>Name</th>
+                        <th>Time</th>
+                        <th>Board Size</th>
+                        <th>Date</th>
+                    </tr>
+                </table>
+                <button id="close">Close</button>
             </div>
         </div>
     </body>

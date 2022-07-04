@@ -1,0 +1,13 @@
+#leaderboard {
+    border-radius: 0.5em;
+    background-color: #f1f9f9;
+    width: 20em;
+    height: 10em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.record {
+    font-weight: lighter;
+}
