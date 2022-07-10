@@ -1,0 +1,1 @@
+Leaderboard feature is still a bit buggy, I didn't have time to finish it but I still wanted to show what I managed to do.

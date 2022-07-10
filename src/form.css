@@ -1,0 +1,26 @@
+.new-game-form {
+    margin-top: 0.5em;
+}
+
+input[type='range'] {
+    overflow: hidden;
+    -webkit-appearance: none;
+    background-color: #e1f2fb;
+    border-radius: 0.5em;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    height: 1em;
+    -webkit-appearance: none;
+    color: #e1f2fb;
+}
+  
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    cursor: ew-resize;
+    border-radius: 0.5em;
+    background: #e9b2bc;
+    box-shadow: -80px 0 0 80px #f3dfe3;
+}
